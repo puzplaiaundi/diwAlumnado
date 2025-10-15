@@ -1,0 +1,41 @@
+      /* Estilo base de todas las cajitas*/
+        .bloque {
+            /* estilos opcionales pero muy resultones */
+            background: #c1a2a2;
+            border-radius: 10px;
+            box-shadow: 20px 20px 8px rgba(0, 0, 0, 0.5);
+            /* fin de opcionales*/
+
+            width: 300px;
+            height: 100px;
+            border: 2px solid #1e1c1c;
+            text-align: center;  /* centra el texto horizontalmente */
+            line-height: 100px; /* centra el texto verticalmente 
+            porque la altura de la caja es 100px probad a cambiar este valor y el de heigth*/
+           
+            font-weight: bold;
+            
+            /*Truco profesional modificado para el ejercicio*/
+            margin: 50px 0; /* se puede jugar con este valor para evitar el solape vertical*/
+            position: relative; /* Cambiad a absolute para ver que sucede */
+            left: 50%; /* mueve el origen de la caja al centro de la pantalla */
+            transform: translateX(-50%);  /* centra horizontalmente pero 
+            se sobreescribe en cada regla  más específica*/
+        }
+
+        /* Rotaciones diferentes */
+        .b1 {
+            transform-origin: top right;
+            transform: rotate(-15deg) skewX(10deg); /*sobreescribe la traslación horizontal*/
+
+        }
+
+        .b2 {
+            transform-origin: top left;
+            transform: rotate(15deg) skewY(-10deg);/*sobreescribe la traslación horizontal*/
+        }
+
+        .b3 {
+            transform-origin: top right;
+            transform: rotate(-20deg) skew(15deg,5deg);/*sobreescribe la traslación horizontal*/
+        }

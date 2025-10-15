@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Título del sitio</title>
+  <meta name="description" content="Descripción breve de la página." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+  <style>
+    /* Reset muy suave */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    .knewave-regular {
+      font-family: "Knewave", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.5;
+      color: #222;
+      background: #fafafa
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block
+    }
+
+    a {
+      color: #0a58ca;
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    /* Layout básico responsivo: header fijo arriba, contenido a dos columnas en pantallas medianas */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem 1rem;
+      background: #000;
+      color: #fff;
+      z-index: 1000
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 10
+    }
+
+    .topbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem
+    }
+
+    .logo {
+      font-weight: 700
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap
+    }
+
+    nav a {
+      display: inline-block;
+      padding: .4rem .6rem;
+      border-radius: .4rem
+    }
+
+    nav a[aria-current="page"] {
+      background: #e9f2ff
+    }
+
+    .hero {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e5e5e5
+    }
+
+    .hero .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem
+    }
+
+    .hero h1 {
+      margin: 0 0 .25rem 0
+    }
+
+    .hero p {
+      margin: .25rem 0 0 0;
+      color: #555
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      gap: 1rem
+    }
+
+    @media (min-width: 900px) {
+      .container {
+        grid-template-columns: 1fr 320px
+      }
+    }
+
+    main {
+      display: grid;
+      gap: 1rem
+    }
+
+    article,
+    section,
+    aside,
+    .card {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: .6rem;
+      padding: 1rem
+    }
+
+    h2,
+    h3 {
+      margin-top: 0
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    th,
+    td {
+      padding: .5rem;
+      border-bottom: 1px solid #eee;
+      text-align: left
+    }
+
+    th {
+      background: #f8fafc
+    }
+
+    form {
+      display: grid;
+      gap: .75rem
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+      font: inherit
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: .5rem;
+      border: 1px solid #ddd;
+      border-radius: .4rem;
+      background: #fff
+    }
+
+    button {
+      padding: .55rem .9rem;
+      border: 1px solid #0a58ca;
+      background: #0a58ca;
+      color: #fff;
+      border-radius: .4rem;
+      cursor: pointer
+    }
+
+    button:hover {
+      filter: brightness(.95)
+    }
+
+    footer {
+      margin-top: 2rem;
+      background: #0b1020;
+      color: #cfd8ff
+    }
+
+    footer .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem
+    }
+
+    footer a {
+      color: #cfd8ff
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header role="banner">
+    <div class="topbar" aria-label="Barra superior">
+      <div class="logo">MiSitio</div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#" aria-current="page">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <h1 class="knewave-regular">Bienvenido a Mi Sitio</h1>
+      <p>Subtítulo o frase de valor. Aquí puedes indicar el objetivo principal de la web.</p>
+    </div>
+  </div>
+
+  <div class="container" id="contenido">
+    <main role="main">
+      <article aria-labelledby="articulo-titulo">
+        <h2 id="articulo-titulo">Artículo principal</h2>
+        <p>Este es un artículo de ejemplo con contenido semántico. Incluye una imagen con pie de foto:</p>
+
+        <figure>
+          <img src="https://picsum.photos/800/400" alt="Imagen de ejemplo aleatoria">
+          <figcaption>Figura 1. Imagen ilustrativa de contenido.</figcaption>
+        </figure>
+
+        <h3>Lista de puntos</h3>
+        <ul>
+          <li>Elemento uno</li>
+          <li>Elemento dos</li>
+          <li>Elemento tres</li>
+        </ul>
+      </article>
+
+      <section aria-labelledby="seccion-tabla">
+        <h2 id="seccion-tabla">Datos en tabla</h2>
+        <div class="card" role="group" aria-labelledby="seccion-tabla">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Elemento A</td>
+                <td>Activo</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Elemento B</td>
+                <td>Pendiente</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Elemento C</td>
+                <td>Inactivo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="seccion-form">
+        <h2 id="seccion-form">Formulario de contacto</h2>
+        <form action="#" method="post" aria-describedby="ayuda-form">
+          <p id="ayuda-form">Todos los campos con * son obligatorios.</p>
+          <label>
+            Nombre *
+            <input type="text" name="nombre" required autocomplete="name" />
+          </label>
+          <label>
+            Email *
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            Motivo
+            <select name="motivo">
+              <option value="consulta">Consulta</option>
+              <option value="soporte">Soporte</option>
+              <option value="otro">Otro</option>
+            </select>
+          </label>
+          <label>
+            Mensaje *
+            <textarea name="mensaje" rows="5" required></textarea>
+          </label>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <aside aria-labelledby="aside-titulo">
+      <h2 id="aside-titulo">Barra lateral</h2>
+      <nav aria-label="Navegación secundaria">
+        <ul>
+          <li><a href="#">Enlace útil 1</a></li>
+          <li><a href="#">Enlace útil 2</a></li>
+          <li><a href="#">Enlace útil 3</a></li>
+        </ul>
+      </nav>
+
+      <div class="card" aria-labelledby="widget-noticias">
+        <h3 id="widget-noticias">Noticias</h3>
+        <ul>
+          <li><a href="#">Novedad reciente</a></li>
+          <li><a href="#">Actualización del sitio</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer role="contentinfo">
+    <div class="wrap">
+      <small>&copy; <span id="year"></span> MiSitio. Todos los derechos reservados. · <a href="#">Aviso legal</a> · <a
+          href="#">Privacidad</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // JS mínimo: año dinámico y ejemplo de interacción
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

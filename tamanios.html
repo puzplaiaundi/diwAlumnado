@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparando px, %, em y rem </title>
+  <link rel="stylesheet" href="css/tamanios.css">
+
+</head>
+<body>
+  <h1>Comparando px, %, em, rem, vh y vw (este texto es el padre)</h1>
+
+  <div class="box px">
+    <strong>PX</strong><br>
+    width: 200px; font-size: 16px
+  </div>
+     <div class="box vh ">
+    <strong>VH</strong><br>
+    font_size: 1.5vh; padding 2vh; Este texto se tiene que ajustar el padding y el tamaño a la altura de la ventana
+  </div>
+    <div class="box vw ">
+    <strong>VW</strong><br>
+    font-size: 1.5vw; padding: 2vw; Este texto se tiene que ajustar el padding y el tamaño a la anchura de la ventana
+  </div>
+
+  <div class="box porcentaje">
+    <strong>%</strong><br>
+    width: 50%; font-size: 120% del padre
+  </div>
+
+  <div class="box em">
+    <strong>EM</strong><br>
+    font-size: 1.5em; padding: 2em
+   
+  </div>
+
+  <div class="box rem">
+    <strong>REM</strong><br>
+    font-size: 2rem; padding: 1rem
+  </div>
+ 
+</body>
+</html>
