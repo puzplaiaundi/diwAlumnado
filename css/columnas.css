@@ -28,7 +28,7 @@ h3 {
 .aviso {
     padding: 1rem;
     background-color: #c3b2ffd5;
-    height: 70px;
+    height: 1.5 em;
     line-height: 70px;
     border-radius: 10px;
     text-align: center;
@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.875rem;
+    font-size: 1.875vw;
     /* ≈ 30px */
     font-weight: 700;
 }
@@ -95,8 +95,9 @@ h2 {
 }
 
 .contenido {
-    height: 200px;
-    ;
+    min-height: 200px;
+    height: auto ;
+    
 }
 
 footer {
