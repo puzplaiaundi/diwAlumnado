@@ -1,7 +1,9 @@
+html{
+      font-size: 18px;
+}
 body {
     padding: 5px;
-    font-family: 'Open Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 18px;
+    font-family: 'Open Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
     line-height: 1.6;
     background-color: #ffb6b631;
     color: #403C4E;
@@ -26,13 +28,13 @@ h3 {
 }
 
 .aviso {
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: #c3b2ffd5;
-    height: 1.5 em;
+    height: 1 rem;
     line-height: 70px;
     border-radius: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-color: #403C4E;
     border-width: 2px;
     border-style: solid;
