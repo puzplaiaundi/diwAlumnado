@@ -1,12 +1,34 @@
-html{
-      font-size: 18px;
+:root {
+    --color-texto: #403C4E;
+    --color-fondo: #ffb6b631;
+    --color-borde: #403C4E;
+    --color_footer:  #FFC4B3;
+    --fuente-principal: 'Open Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    --fuente-titulos: 'Merriweather',
+        /* preferida (de Google Fonts) */
+        'Georgia',
+        /* elegante, común en Windows/macOS */
+        'Times New Roman',
+        /* disponible en casi todos los sistemas */
+        'Times',
+        /* fallback clásico */
+        serif;
+
+        /*valores de las sombras*/
+    --sombra-resplandeciente: 2px 2px 5px rgba(0, 0, 0, 0.3),
+    4px 4px 10px rgba(212, 190, 94, 0.767),
+   0 0 20px rgba(255, 200, 150, 0.8);}
+
+html {
+    font-size: 18px;
 }
+
 body {
     padding: 5px;
-    font-family: 'Open Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+    font-family: var(--fuente-principal);
     line-height: 1.6;
-    background-color: #ffb6b631;
-    color: #403C4E;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
     width: 80%;
     margin: 0 auto;
 }
@@ -16,35 +38,21 @@ h2,
 h3 {
     line-height: 1.2;
     font-family:
-        'Merriweather',
-        /* preferida (de Google Fonts) */
-        'Georgia',
-        /* elegante, común en Windows/macOS */
-        'Times New Roman',
-        /* disponible en casi todos los sistemas */
-        'Times',
-        /* fallback clásico */
-        serif;
+        var(--fuente-titulos);
 }
 
 .aviso {
-    padding: 1.5rem;
-    background-color: #c3b2ffd5;
-    height: 1 rem;
-    line-height: 70px;
+    padding: 1.6rem;
+    background-color: var(--color-fondo);
+    height: auto;
+    line-height: 50px;
     border-radius: 10px;
     text-align: center;
-    font-size: 1.2rem;
-    border-color: #403C4E;
+    font-size: 1.1rem;
+    border-color: var(--color-borde);
     border-width: 2px;
     border-style: solid;
-    box-shadow:
-        2px 2px 5px rgba(0, 0, 0, 0.3),
-        /* sombra principal */
-        4px 4px 10px rgba(212, 190, 94, 0.767),
-        /* sombra más difusa */
-        0 0 20px rgba(255, 200, 150, 0.8);
-    /* resplandor o luz */
+    box-shadow: var(--sombra-resplandeciente);
 
 }
 
@@ -98,13 +106,13 @@ h2 {
 
 .contenido {
     min-height: 200px;
-    height: auto ;
-    
+    height: auto;
+
 }
 
 footer {
-    background-color: #FFC4B3;
-    height: 100px;
+    background-color: var(--color_footer);
+    height: auto;
     padding: 1rem;
     border-radius: 10px;
 
