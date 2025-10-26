@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ejemplos SASS: variables, mixins, mapas y más</title>
+    <!--
+      Compilación SASS (ejemplos):
+      - Requiere tener `sass` instalado (Dart Sass)
+      - Comando: sass EjemplosSASS/styles.scss EjemplosSASS/styles.css --watch
+      - Alternativa (si usas npm): npx sass EjemplosSASS/styles.scss EjemplosSASS/styles.css --watch
+    -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="topbar container">
+        <div class="brand">SASS Demo</div>
+        <nav class="nav" aria-label="Principal">
+          <a href="#intro" class="is-active">Intro</a>
+          <a href="#cards">Cards</a>
+          <a href="#botones">Botones</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="intro">
+      <div class="wrap">
+        <h1>Qué podemos hacer con SASS</h1>
+        <p>Variables, anidado, mixins, placeholders, mapas, loops y funciones.</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section id="cards">
+        <h2>Componentes con anidado y placeholders</h2>
+        <div class="grid">
+          <article class="card">
+            <h3 class="card__title">Tarjeta 1</h3>
+            <p class="card__meta">Ejemplo de @extend y mixin</p>
+            <p>Contenido de la tarjeta con estilos generados desde SASS.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Tarjeta 2</h3>
+            <p class="card__meta">Variables + anidado</p>
+            <p>Colores, bordes y sombras desde un mapa de colores.</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">Tarjeta 3</h3>
+            <p class="card__meta">Funciones personalizadas</p>
+            <p>Uso de <code>rgba()</code> y utilidades de color.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="botones" class="m-3">
+        <h2>Botones generados desde mapas (@each)</h2>
+        <p class="p-2">
+          <a class="btn btn--primary" href="#">Primario</a>
+          <a class="btn btn--secondary" href="#">Secundario</a>
+          <button class="btn btn--ghost" type="button">Ghost</button>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Hecho con SASS para demostración docente.</small>
+    </footer>
+  </body>
+  </html>
+

@@ -1,0 +1,190 @@
+/*!
+  Demo SASS: variables, anidado, mixins, placeholders, mapas y loops
+  Compila con:
+    sass EjemplosSASS/styles.scss EjemplosSASS/styles.css --watch
+  o con npm:
+    npx sass EjemplosSASS/styles.scss EjemplosSASS/styles.css --watch
+*/
+
+@use "sass:color";
+@use "sass:math";
+
+// Variables base
+$font-base: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+$radius: .75rem;
+$space: 1rem;
+
+// Mapa de colores centralizado
+$palette: (
+  primary: #ebd7d7,
+  secondary: #805ad5,
+  success: #16a34a,
+  warning: #d97706,
+  danger: #dc2626,
+  surface: #ffffff,
+  text: #1f2328,
+  muted: #64748b,
+  border: #e5e7eb,
+  bg: #f6f8fa
+);
+
+// Función para obtener color con alpha
+@function color-get($name, $alpha: 1) {
+  $c: map-get($palette, $name);
+  @if $c == null {
+    @error "Color `#{$name}` no existe en $palette";
+  }
+  @return rgba($c, $alpha);
+}
+
+// Mixins reutilizables
+@mixin card($pad: $space) {
+  background: map-get($palette, surface);
+  border: 1px solid map-get($palette, border);
+  border-radius: $radius;
+  padding: $pad;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+
+@mixin flex-center($gap: .5rem) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+
+// Placeholder para extender
+%card {
+  @include card();
+}
+
+// Escala de fuentes simple via mapa
+$font-scale: (
+  1: .875rem,
+  2: 1rem,
+  3: 1.25rem,
+  4: 1.5rem,
+  5: 2rem
+);
+
+// Reglas base
+:root { --brand: #{map-get($palette, primary)}; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: $font-base;
+  line-height: 1.5;
+  color: map-get($palette, text);
+  background: map-get($palette, bg);
+}
+
+.container { max-width: 1100px; margin-inline: auto; padding: 1rem; }
+
+.header {
+  background: map-get($palette, surface);
+  border-bottom: 1px solid map-get($palette, border);
+
+  .topbar {
+    @extend .container;
+    @include flex-center(1rem);
+    justify-content: space-between;
+    padding: .75rem 1rem;
+  }
+
+  .brand { font-weight: 700; }
+
+  .nav {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    a {
+      display: inline-block;
+      padding: .4rem .6rem;
+      border-radius: .5rem;
+      text-decoration: none;
+      color: color-get(primary);
+      background: color-get(primary, .08);
+      border: 1px solid color-get(primary, .2);
+
+      &:hover { background: color-get(primary, .12); }
+      &.is-active { background: color-get(primary, .16); }
+    }
+  }
+}
+
+.hero {
+  background: color-get(primary, .06);
+  border-bottom: 1px solid map-get($palette, border);
+
+  .wrap {
+    @extend .container;
+    padding-block: 2rem;
+  }
+
+  h1 { margin: 0 0 .25rem; font-size: map-get($font-scale, 5); }
+  p { margin: .25rem 0 0; color: map-get($palette, muted); }
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  @extend %card;
+
+  &__title { margin: 0 0 .25rem; font-size: map-get($font-scale, 4); }
+  &__meta { color: map-get($palette, muted); font-size: map-get($font-scale, 1); }
+
+  &:hover {
+    border-color: color-get(primary, .35);
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  }
+}
+
+// Generación de variantes de botón desde un mapa (@each)
+$buttons: (
+  primary: (bg: map-get($palette, primary), color: #fff),
+  secondary: (bg: map-get($palette, secondary), color: #fff),
+  ghost: (bg: transparent, color: map-get($palette, text), border: map-get($palette, border))
+);
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .9rem;
+  border-radius: .5rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+
+  @each $name, $cfg in $buttons {
+    &--#{$name} {
+      $bg: map-get($cfg, bg);
+      $fg: map-get($cfg, color);
+      $bd: if(map-has-key($cfg, border), map-get($cfg, border), color.scale($bg, $lightness: -10%));
+
+      background: $bg;
+      color: $fg;
+      border-color: $bd;
+
+      &:hover { background: color.scale($bg, $lightness: -7%); }
+      &:active { transform: translateY(1px); }
+    }
+  }
+}
+
+// Utilidades con bucles (@for)
+@for $i from 1 through 4 {
+  .m-#{$i} { margin: $i * .25rem !important; }
+  .p-#{$i} { padding: $i * .25rem !important; }
+}
+
+.footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  color: map-get($palette, muted);
+  text-align: center;
+}
+
