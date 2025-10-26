@@ -40,6 +40,11 @@
           transform: rotate(-15deg) skewX(10deg);
           /*sobreescribe la traslación horizontal*/
       }
+        .b1:hover {
+          transform-origin: top right;
+          transform: rotate(0deg) skewX(10deg);
+          /*sobreescribe la traslación horizontal*/
+      }
 
       .b2 {
           transform-origin: top left;

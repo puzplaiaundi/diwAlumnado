@@ -35,20 +35,21 @@ html {
 }
 
 /* Rotaciones diferentes */
-.b1 {
+.b1:hover {
     transform-origin: 50% 50%;
     transform: translateX(-46%) rotate(-15deg) skewX(10deg);
     /*sobreescribe la traslación horizontal*/
 
 }
 
-.b2 {
+
+.b2:hover {
     /*! transform-origin: top left; */
     transform: translateX(-45%) translateY(5px)rotate(15deg) skewY(-10deg);
     /*sobreescribe la traslación horizontal*/
 }
 
-.b3 {
+.b3:hover {
     /*! transform-origin: top right; */
     transform: translateX(-45%) rotate(-20deg) skew(15deg, 5deg);
     /*sobreescribe la traslación horizontal*/
