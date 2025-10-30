@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Práctica: CSS Grid y Flexbox</title>
+    <link rel="stylesheet" href="practica-grid-flex.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>Práctica: CSS Grid y Flexbox</h1>
+      <nav class="nav flex-demo">
+        <a href="#grid">Grid</a>
+        <a href="#flex">Flexbox</a>
+        <a href="#">Otro</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="grid">
+        <h2>Ejemplo con Grid</h2>
+        <p>
+          Cambia <code>grid-template-columns</code> en la hoja de estilos para ver
+          cómo responde la cuadrícula.
+        </p>
+        <div class="grid-demo">
+          <article class="card">1</article>
+          <article class="card">2</article>
+          <article class="card">3</article>
+          <article class="card">4</article>
+          <article class="card">5</article>
+          <article class="card">6</article>
+          <article class="card">7</article>
+          <article class="card">8</article>
+          <article class="card">9</article>
+          <article class="card">10</article>
+          <article class="card">11</article>
+          <article class="card">12</article>
+        </div>
+      </section>
+
+      <section id="flex">
+        <h2>Ejemplo con Flexbox</h2>
+        <p>
+          Juega con <code>justify-content</code>, <code>align-items</code> y
+          <code>flex</code> para observar los cambios.
+        </p>
+        <div class="flex-demo">
+          <div class="box">A</div>
+          <div class="box">B</div>
+          <div class="box">C</div>
+          <div class="box">D</div>
+          <div class="box">E</div>
+          <div class="box">F</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">Hecho para practicar layout 🎯</footer>
+  </body>
+  </html>
+

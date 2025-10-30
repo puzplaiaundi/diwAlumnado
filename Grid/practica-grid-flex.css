@@ -1,0 +1,90 @@
+/*
+  Hoja de estilos para practicar Grid y Flexbox
+  Sugerencias rápidas:
+  - Cambia los valores de grid-template-columns en .grid-demo
+  - Modifica justify-content / align-items en .flex-demo
+  - Ajusta el valor de flex en .box para ver cómo crecen/encogen
+*/
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #1f2328;
+  background: #f6f8fa;
+}
+
+.site-header, .site-footer {
+  background: #ffffff;
+  border-block-end: 1px solid #eaeef2;
+  padding: 1rem;
+}
+.site-footer { border-block-end: 0; border-block-start: 1px solid #eaeef2; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+h1, h2 { margin: 0 0 .75rem; }
+p { margin: 0 0 1rem; }
+
+/* Navegación simple con Flexbox */
+.nav { gap: .5rem; }
+.nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: #0b5fff;
+  background: #eef4ff;
+  border: 1px solid #d6e3ff;
+  padding: .4rem .7rem;
+  border-radius: .5rem;
+}
+
+/* GRID: cuadricula fluida */
+.grid-demo {
+  display: grid;
+  gap: 1rem;
+  /* Prueba estas variantes: */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-columns: 200px 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #46484a;
+  border-radius: .75rem;
+  min-height: 90px;
+  display: grid;
+  place-content: center;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* FLEXBOX: fila con salto de línea */
+.flex-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  /* Juega con estos: */
+  /*! justify-content: center; */
+  justify-content: space-between;
+  /*! align-items: center; */
+/*! flex-direction: row-reverse; */
+ /*! flex-direction: column; */
+ /*! flex-direction: column-reverse; */
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #e6ebf1;
+  border-radius: .75rem;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 700;
+  color: #0f172a;
+  /* Crece y encoge; ancho base */
+  flex: 1 1 200px;
+  min-width: 160px;
+}
+
+/* (sin media queries por petición) */

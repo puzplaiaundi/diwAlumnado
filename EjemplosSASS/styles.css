@@ -6,8 +6,8 @@
     npx sass EjemplosSASS/styles.scss EjemplosSASS/styles.css --watch
 */
 .card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: #726e6e;
+  border: 1px solid;
   border-radius: 0.75rem;
   padding: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -36,8 +36,8 @@ body {
 }
 
 .header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: #726e6e;
+  border-bottom: 1px solid;
 }
 .header .topbar {
   display: flex;
@@ -65,15 +65,15 @@ body {
   border: 1px solid rgba(235, 215, 215, 0.2);
 }
 .header .nav a:hover {
-  background: rgba(235, 215, 215, 0.12);
+  background: #1c1133;
 }
 .header .nav a.is-active {
-  background: rgba(235, 215, 215, 0.16);
+  background: rgba(28, 17, 51, 0.16);
 }
 
 .hero {
   background: rgba(235, 215, 215, 0.06);
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid;
 }
 .hero .wrap {
   padding-block: 2rem;
@@ -84,7 +84,6 @@ body {
 }
 .hero p {
   margin: 0.25rem 0 0;
-  color: #64748b;
 }
 
 .grid {
@@ -98,7 +97,6 @@ body {
   font-size: 1.5rem;
 }
 .card__meta {
-  color: #64748b;
   font-size: 0.875rem;
 }
 .card:hover {
@@ -129,12 +127,12 @@ body {
   transform: translateY(1px);
 }
 .btn--secondary {
-  background: #805ad5;
+  background: #1c1133;
   color: #fff;
-  border-color: rgb(109.4101449275, 65.847826087, 206.852173913);
+  border-color: rgb(25.2, 15.3, 45.9);
 }
 .btn--secondary:hover {
-  background: rgb(114.9871014493, 73.0934782609, 208.6965217391);
+  background: rgb(26.04, 15.81, 47.43);
 }
 .btn--secondary:active {
   transform: translateY(1px);
@@ -142,7 +140,6 @@ body {
 .btn--ghost {
   background: transparent;
   color: #1f2328;
-  border-color: #e5e7eb;
 }
 .btn--ghost:hover {
   background: rgba(0, 0, 0, 0);
@@ -186,6 +183,5 @@ body {
 .footer {
   margin-top: 2rem;
   padding: 1rem;
-  color: #64748b;
   text-align: center;
 }/*# sourceMappingURL=styles.css.map */

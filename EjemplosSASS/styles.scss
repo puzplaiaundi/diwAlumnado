@@ -17,13 +17,13 @@ $space: 1rem;
 // Mapa de colores centralizado
 $palette: (
   primary: #ebd7d7,
-  secondary: #805ad5,
+  secondary: #1c1133,
   success: #16a34a,
   warning: #d97706,
   danger: #dc2626,
-  surface: #ffffff,
-  text: #1f2328,
-  muted: #64748b,
+  surface: #726e6e,
+  text: #1f2328,S
+  muted: #64748b,S
   border: #e5e7eb,
   bg: #f6f8fa
 );
@@ -104,8 +104,8 @@ body {
       background: color-get(primary, .08);
       border: 1px solid color-get(primary, .2);
 
-      &:hover { background: color-get(primary, .12); }
-      &.is-active { background: color-get(primary, .16); }
+      &:hover { background: map-get($palette, secondary); }
+      &.is-active { background: color-get(secondary, .16); }
     }
   }
 }
@@ -148,6 +148,7 @@ $buttons: (
   ghost: (bg: transparent, color: map-get($palette, text), border: map-get($palette, border))
 );
 
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -158,6 +159,7 @@ $buttons: (
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+
 
   @each $name, $cfg in $buttons {
     &--#{$name} {
