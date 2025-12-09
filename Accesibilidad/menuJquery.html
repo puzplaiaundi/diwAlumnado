@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú accesible animado con jQuery</title>
+<link rel="stylesheet" href="css/menu_aria.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+</head>
+
+<body>
+
+<h1>Menú accesible con animación (versión jQuery)</h1>
+
+<button 
+    class="menu-button"
+    aria-expanded="false"
+    aria-controls="submenu">
+    🌐 Menú principal
+</button>
+
+<ul id="submenu" hidden data-open="false">
+    <li><a href="#">🏠 Inicio</a></li>
+    <li><a href="#">📚 Servicios</a></li>
+    <li><a href="#">📞 Contacto</a></li>
+    <li><a href="#">🎓 Formación</a></li>
+</ul>
+
+<script>
+$(document).ready(function() {
+
+    $(".menu-button").on("click", function() {
+
+        const $btn = $(this);
+        const submenuId = $btn.attr("aria-controls");
+        const $submenu = $("#" + submenuId);
+
+        const expanded = $btn.attr("aria-expanded") === "true";
+
+        // Cambiamos accesibilidad
+        $btn.attr("aria-expanded", !expanded);
+
+        // Ocultamos / mostramos accesiblemente
+        if (expanded) {
+            $submenu.attr("hidden", true);
+            $submenu.attr("data-open", "false");
+        } else {
+            $submenu.attr("hidden", false);
+            $submenu.attr("data-open", "true");
+
+            // Mover el foco al primer enlace
+            $submenu.find("a").first().focus();
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>

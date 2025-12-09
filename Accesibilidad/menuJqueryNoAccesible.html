@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú NO accesible con jQuery</title>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- TU CSS GLOBAL PARA LOS MENÚS -->
+<link rel="stylesheet" href="/css/menu.css">
+
+</head>
+
+<body>
+
+<h1>Menú jQuery NO accesible</h1>
+
+<button class="menu-button">
+    🌐 Menú principal
+</button>
+
+<ul id="submenu">
+    <li><a href="#">🏠 Inicio</a></li>
+    <li><a href="#">📚 Servicios</a></li>
+    <li><a href="#">📞 Contacto</a></li>
+    <li><a href="#">🎓 Formación</a></li>
+</ul>
+
+<script>
+$(document).ready(function() {
+
+    // ❌ Implementación clásica de jQuery SIN accesibilidad
+    $(".menu-button").on("click", function() {
+        $("#submenu").slideToggle(300);
+    });
+
+});
+</script>
+
+</body>
+</html>

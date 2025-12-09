@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Swiper accesible</title>
+
+<!-- CSS de Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+  }
+
+  .swiper {
+    width: 600px;
+    height: 300px;
+  }
+
+  .swiper-slide {
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  /* Foco accesible */
+  .swiper-button-next:focus,
+  .swiper-button-prev:focus,
+  .swiper-pagination-bullet:focus {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Ejemplo de Swiper accesible</h1>
+
+<!-- Contenedor Swiper -->
+<div class="swiper" aria-label="Galería de imágenes">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" role="group" aria-label="Diapositiva 1 de 3">Slide 1</div>
+    <div class="swiper-slide" role="group" aria-label="Diapositiva 2 de 3">Slide 2</div>
+    <div class="swiper-slide" role="group" aria-label="Diapositiva 3 de 3">Slide 3</div>
+  </div>
+
+  <!-- Flechas accesibles -->
+  <div class="swiper-button-prev" aria-label="Diapositiva anterior"></div>
+  <div class="swiper-button-next" aria-label="Diapositiva siguiente"></div>
+
+  <!-- Paginación -->
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- JS de Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: false,
+
+    // ⭐ Accesibilidad activada
+    a11y: {
+      enabled: true,
+      prevSlideMessage: 'Diapositiva anterior',
+      nextSlideMessage: 'Diapositiva siguiente',
+      firstSlideMessage: 'Esta es la primera diapositiva',
+      lastSlideMessage: 'Esta es la última diapositiva',
+      slideLabelMessage: '{{index}} / {{slidesLength}}', 
+    },
+
+    // ⭐ Navegación por teclado
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
+    },
+
+    // ⭐ Flechas
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    // ⭐ Paginación accesible
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+ body {
+        font-family: Arial, sans-serif;
+        padding: 3rem;
+        background: linear-gradient(135deg, #1e5799, #2989d8, #7db9e8);
+        color: white;
+    }
+
+    h1 {
+        margin-bottom: 2rem;
+    }
+
+    /* BOTÓN DEL MENÚ */
+    .menu-button {
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+        background: #003f8c;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .menu-button:hover {
+        background: #005fcc;
+        transform: translateY(-2px);
+    }
+
+    .menu-button:focus-visible {
+        outline: 3px solid yellow;
+        outline-offset: 3px;
+    }
+
+    /* CONTENEDOR DEL MENU (animado) */
+    #submenu {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba(255,255,255,0.15);
+        border-radius: 8px;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+        /* Esto oculta la caja al inicio */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+
+        /* Transiciones accesibles */
+        transition: 
+            max-height 0.4s ease,
+            opacity 0.3s ease;
+    }
+
+    /* Cuando está expandido */
+    #submenu[data-open="true"] {
+        opacity: 1;
+        max-height: 500px; /* suficiente para todas las opciones */
+    }
+
+    /* OPCIONES DEL MENU */
+    #submenu li {
+        margin-bottom: 0.8rem;
+        list-style: none;
+    }
+
+    #submenu a {
+        text-decoration: none;
+        color: #f0f8ff;
+        font-size: 1.1rem;
+    }
+
+    #submenu a:hover,
+    #submenu a:focus-visible {
+        text-decoration: underline;
+        outline: 2px solid yellow;
+        outline-offset: 4px;
+    }
