@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Problemas intencionados para pruebas con WAVE:
+ - Falta atributo lang en <html>
+ - Orden incorrecto de encabezados (empieza en h3, múltiples h1, saltos)
+ - Enlaces vacíos y sin texto significativo
+ - Imágenes sin alt o con alt vacío no decorativo
+ - Inputs sin <label> asociado
+ - <label> sin for correcto
+ - IDs duplicados
+ - <div> dentro de <p> (anidación inválida)
+ - Tabla usada para maquetar sin cabeceras
+ - ARIA mal usada (role=button sin tabindex/teclado)
+ - Contrastes muy bajos (#e5e5e5 sobre #ffffff, #9aa sobre #fff, etc.)
+ - Botón con texto casi invisible
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Demo con errores de accesibilidad y semántica</title>
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #ffffff;
+      color: #e5e5e5;              /* CONTRASTE MUY BAJO CON FONDO BLANCO */
+      line-height: 1.4;
+    }
+    a { color: #9aa; }             /* CONTRASTE INSUFICIENTE SOBRE BLANCO */
+    header, main, footer { padding: 12px; }
+    .card {
+      border: 1px solid #f2f2f2;   /* Borde casi invisible */
+      padding: 8px;
+      margin: 8px 0;
+    }
+    .bad-button {
+      background: #fafafa;         /* Fondo muy claro */
+      color: #f5f5f5;              /* Texto casi del mismo tono (casi invisible) */
+      border: 1px solid #f0f0f0;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+    table.layout { width: 100%; border-collapse: collapse; }
+    table.layout td { border: 1px solid #efefef; padding: 8px; }
+    .muted { color: #bfbfbf; }     /* También insuficiente sobre blanco */
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado con orden incorrecto (no hay h1 antes de h3) -->
+  <header id="header">
+    <h3>Sección principal</h3>
+    <h1>Otro título principal</h1> <!-- Múltiples h1 -->
+    <h4>Subsección</h4>            <!-- Salto de niveles (h3 → h1 → h4) -->
+    <nav>
+      <a href="#"></a>             <!-- Enlace vacío -->
+      <a href="#">Haz clic aquí</a> <!-- Texto no descriptivo -->
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Imagen sin alt (debería tener alt significativo si no es decorativa) -->
+    <img src="https://via.placeholder.com/600x200" alt="">
+
+    <section class="card" id="intro">
+      <!-- Anidación incorrecta: <div> dentro de <p> -->
+      <p>
+        Este párrafo tiene un contraste deficiente y una anidación inválida.
+        <div>DIV dentro de un párrafo (incorrecto semánticamente).</div>
+      </p>
+
+      <!-- ARIA mal usada: role=button sin tabindex ni manejo de teclado -->
+      <div role="button" class="bad-button">Continuar</div>
+    </section>
+
+    <!-- IDs duplicados: ya existe #intro arriba -->
+    <section class="card" id="intro">
+      <h2>Catálogo</h2>
+      <!-- Tabla usada para MAQUETAR (sin thead/th ni caption) -->
+      <table class="layout">
+        <tr>
+          <td>
+            <img src="https://via.placeholder.com/120" alt="Producto"> <!-- ok -->
+            <p class="muted">Descripción con poco contraste</p>
+            <a href="#">Más info</a>
+          </td>
+          <td>
+            <img src="https://via.placeholder.com/120"> <!-- sin alt -->
+            <p>Texto en color base (muy bajo contraste)</p>
+            <a href="#"></a> <!-- enlace vacío -->
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h1>Formulario de contacto</h1> <!-- Otro h1 innecesario -->
+      <form>
+        <!-- input sin label -->
+        <input type="text" placeholder="Nombre">
+        <!-- label sin for correcto -->
+        <label>Correo electrónico</label>
+        <input id="email-input-1" type="email" placeholder="email@ejemplo.com">
+        <!-- Contraste muy bajo en botón -->
+        <button type="submit" class="bad-button">Enviar</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h4>Noticias recientes</h4> <!-- Salto de nivel otra vez -->
+      <article>
+        <h6>Titular pequeño</h6>
+        <p>
+          Texto con <a href="#">leer más</a> en contraste bajo y poco descriptivo.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <a href="#">Política</a> | <a href="#">Cookies</a> | <a href="#"></a> <!-- Enlace vacío -->
+  </footer>
+
+</body>
+</html>

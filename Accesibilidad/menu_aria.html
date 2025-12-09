@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Menú accesible con aria-expanded + CSS</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+    }
+
+    /* Estilo del botón */
+    .menu-button {
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+        background-color: #004080;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .menu-button:focus {
+        outline: 3px solid #00b3ff;
+        outline-offset: 3px;
+    }
+
+    /* Estilo del menú */
+    #submenu {
+        margin-top: 1rem;
+        padding-left: 1rem;
+        border-left: 3px solid #004080;
+    }
+
+    #submenu li {
+        margin-bottom: 0.5rem;
+    }
+
+    #submenu a {
+        color: #004080;
+        text-decoration: none;
+    }
+
+    #submenu a:focus {
+        outline: 2px solid orange;
+        outline-offset: 3px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Ejemplo de menú accesible</h1>
+
+<button 
+    class="menu-button"
+    aria-expanded="false" 
+    aria-controls="submenu">
+    Menú principal
+</button>
+
+<ul id="submenu" hidden>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Contacto</a></li>
+</ul>
+
+
+<script>
+    const btn = document.querySelector(".menu-button");
+    const submenu = document.getElementById("submenu");
+
+    btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+
+        // Cambiamos el estado accesible
+        btn.setAttribute("aria-expanded", !expanded);
+
+        // Ocultamos/mostramos visual y accesiblemente
+        submenu.hidden = expanded ? true : false;
+    });
+</script>
+
+</body>
+</html>
