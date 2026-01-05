@@ -1,0 +1,31 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+  list-style: none;
+  padding-left: 40px;
+  min-height: 32px;
+  line-height: 32px;
+  position: relative;
+}
+
+.menu li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  background-image: url("sprite.png");
+  background-repeat: no-repeat;
+}
+
+.menu li.home::before { background-position:   0   0; }
+.menu li.user::before { background-position: -32px 0; }
+.menu li.mail::before { background-position: -64px 0; }
+.menu li.settings::before { background-position: -96px 0; }
