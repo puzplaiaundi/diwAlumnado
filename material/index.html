@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Material Web Button</title>
+
+  <!-- Importar Material Web Components -->
+  <script type="module" src="https://esm.run/@material/web/all.js"></script>
+
+  <!-- Fuente Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Tema Material (tokens básicos) -->
+  <style>
+    :root {
+      /* Paleta generada con Material Theme Builder */
+      --md-sys-color-primary: #6750a4;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-surface: #fffbfe;
+      --md-sys-color-on-surface: #1c1b1f;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejemplo Material Web</h1>
+
+  <!-- Botón Material 3 -->
+  <md-filled-button>
+    <span class="material-symbols-outlined" slot="icon">save</span>
+    Guardar
+  </md-filled-button>
+
+  <br><br>
+
+  <!-- Botón deshabilitado -->
+  <md-filled-button disabled>
+    Deshabilitado
+  </md-filled-button>
+
+
+<md-tabs aria-label="Content to view">
+  <md-primary-tab id="photos-tab" aria-controls="photos-panel">
+    Photos
+  </md-primary-tab>
+  <md-primary-tab id="videos-tab" aria-controls="videos-panel">
+    Videos
+  </md-primary-tab>
+  <md-primary-tab id="music-tab" aria-controls="music-panel">
+    Music
+  </md-primary-tab>
+</md-tabs>
+
+<div id="photos-panel" role="tabpanel" aria-labelledby="photos-tab">
+  Contenido  de fotos</div>
+<div id="videos-panel" role="tabpanel" aria-labelledby="videos-tab" hidden>
+Contenido  de video
+</div>
+<div id="music-panel" role="tabpanel" aria-labelledby="music-tab" hidden>
+  Contenido  de Musica
+</div>
+
+</body>
+<script>
+  const tabs = document.querySelector('md-tabs');
+  const panels = document.querySelectorAll('[role="tabpanel"]');
+
+  tabs.addEventListener('change', (event) => {
+    const activeTab = event.target.activeTab;
+    const panelId = activeTab.getAttribute('aria-controls');
+
+    panels.forEach(panel => {
+      panel.hidden = panel.id !== panelId;
+    });
+  });
+</script>
+</html>

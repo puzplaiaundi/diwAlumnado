@@ -1,0 +1,20 @@
+/* Confirmamos que el CSS carga */
+body {
+  outline: 6px solid red;
+}
+
+/* Redefinimos TODO lo que Bootstrap usa para "primary" */
+:root {
+  /* Color base */
+  --bs-primary: rgb(255, 245, 105);
+
+  /* Color en RGB (CLAVE ABSOLUTA) */
+  --bs-primary-rgb: 255, 245, 105;
+
+  /* Componentes que NO recalculan solos */
+  --bs-btn-bg: hotpink;
+  --bs-btn-border-color: hotpink;
+
+  --bs-link-color: hotpink;
+  --bs-link-hover-color: deeppink;
+}
