@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Spinner loading</title>
+
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #0f172a;
+      color: white;
+      font-family: system-ui, sans-serif;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 5px solid rgba(255,255,255,0.2);
+      border-top-color: #60a5fa;
+      border-radius: 50%;
+      animation: girar 1s linear infinite;
+    }
+
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spinner" aria-label="Cargando"></div>
+
+</body>
+</html>

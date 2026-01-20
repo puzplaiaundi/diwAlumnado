@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reveal on Scroll</title>
+  <link rel="stylesheet" href="styles.css"  >
+  <script src="scroll.js" >   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+<header>
+  <h1>Reveal on Scroll</h1>
+  <p>El texto aparece suavemente desde abajo al hacer scroll</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Sección 1</h2>
+    <p>
+      Este texto aparece cuando la sección entra en la pantalla.
+      La animación es suave y solo se ejecuta una vez.
+    </p>
+  </section>
+
+  <section>
+    <h2>Sección 2</h2>
+    <p>
+      IntersectionObserver detecta cuándo el elemento es visible
+      sin escuchar continuamente el evento scroll.
+    </p>
+  </section>
+
+  <section>
+    <h2>Sección 3</h2>
+    <p>
+      Este patrón se usa mucho en landing pages modernas
+      y mejora la percepción de fluidez y jerarquía visual.
+    </p>
+  </section>
+
+  <section>
+    <h2>Sección 4</h2>
+    <p>
+      El contenido solo se anima cuando realmente es visto
+      por el usuario, no antes.
+    </p>
+  </section>
+    <section>
+    <h2>Sección 4</h2>
+    <p>
+      El contenido solo se anima cuando realmente es visto
+      por el usuario, no antes.
+    </p>
+  </section>
+    <section>
+    <h2>Sección 4</h2>
+    <p>
+      El contenido solo se anima cuando realmente es visto
+      por el usuario, no antes.
+    </p>
+  </section>
+
+</main>
+
+<script>
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // anima solo una vez
+        }
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
